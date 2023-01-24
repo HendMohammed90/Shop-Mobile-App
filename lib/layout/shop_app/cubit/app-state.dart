@@ -54,16 +54,6 @@ class ShopAppGetUserDataErrorState extends ShopAppStates {
 //Change Mode Light or Dark
 class AppChangeThemMode extends ShopAppStates {}
 
-//For Searching
-class NewsSearchLoadingState extends ShopAppStates {}
-
-class NewsSearchSuccessState extends ShopAppStates {}
-
-class NewsSearchFailedState extends ShopAppStates {
-  final String error;
-  NewsSearchFailedState(this.error);
-}
-
 class ShopAppChangeCartState extends ShopAppStates {}
 
 class ShopAppChangeCartSuccessState extends ShopAppStates {
@@ -80,3 +70,13 @@ class ShopAppGetCartSuccessState extends ShopAppStates {}
 class ShopAppGetCartErrorState extends ShopAppStates {}
 
 // class AppUpdateDatabaseState extends AppStates {}
+
+//For Searching
+class ShopAppSearchLoadingState extends ShopAppStates {}
+
+class ShopAppSearchSuccessState extends ShopAppStates {}
+
+class ShopAppSearchFailedState extends ShopAppStates {
+  final String error;
+  ShopAppSearchFailedState(this.error);
+}

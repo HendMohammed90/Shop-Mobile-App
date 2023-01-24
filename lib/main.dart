@@ -40,9 +40,9 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (BuildContext context) => ShopAppCubit()
         ..getData()
+        ..getCartData()
         ..getCategoryData()
         ..getFavouriteData()
-        ..getCartData()
         ..getProfileData(),
       child: MaterialApp(
         theme: lightThem,

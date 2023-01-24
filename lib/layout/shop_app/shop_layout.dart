@@ -11,8 +11,6 @@ class ShopLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // token = CacheWrapper.getData(key: 'token');
-    // print('Token is $token');
     return BlocConsumer<ShopAppCubit, ShopAppStates>(
       listener: (context, state) {},
       builder: (context, state) {

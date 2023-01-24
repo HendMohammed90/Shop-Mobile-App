@@ -17,34 +17,22 @@ class Favourite extends StatelessWidget {
         // var model = ShopAppCubit.get(context).favouriteModel!.data!.data;
         return Container(
           child: ConditionalBuilder(
-              condition: state is! ShopAppGetFavoriteLoadingState,
-              builder: (context) => ListView.separated(
-                  itemBuilder: (context, index) => buildFavouritListItem(
-                      ShopAppCubit.get(context)
-                          .favouriteModel!
-                          .data!
-                          .data[index],
-                      context),
-                  separatorBuilder: (context, index) => SizedBox(height: 10),
-                  itemCount: ShopAppCubit.get(context)
-                      .favouriteModel!
-                      .data!
-                      .data
-                      .length),
-              fallback: (context) => Center(
-                    child: CircularProgressIndicator(),
-                  )),
+            condition: state is! ShopAppGetFavoriteLoadingState,
+            builder: (context) => ListView.separated(
+                itemBuilder: (context, index) => buildFavouritListItem(
+                    ShopAppCubit.get(context).favouriteModel!.data!.data[index],
+                    context),
+                separatorBuilder: (context, index) => SizedBox(height: 10),
+                itemCount: ShopAppCubit.get(context)
+                    .favouriteModel!
+                    .data!
+                    .data
+                    .length),
+            fallback: (context) => Center(
+              child: CircularProgressIndicator(),
+            ),
+          ),
         );
-
-        // Container(
-        //   child: ListView.separated(
-        //       itemBuilder: (context, index) => buildFavouritListItem(
-        //           ShopAppCubit.get(context).favouriteModel!.data!.data[index],
-        //           context),
-        //       separatorBuilder: (context, index) => SizedBox(height: 10),
-        //       itemCount:
-        //           ShopAppCubit.get(context).favouriteModel!.data!.data.length),
-        // );
       },
     );
   }

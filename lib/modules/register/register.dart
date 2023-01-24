@@ -57,7 +57,6 @@ class Signup extends StatelessWidget {
         },
         builder: (context, state) {
           return Scaffold(
-            appBar: AppBar(),
             body: Center(
               child: SingleChildScrollView(
                 child: Form(

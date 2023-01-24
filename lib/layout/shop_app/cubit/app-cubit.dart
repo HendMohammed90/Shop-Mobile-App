@@ -7,11 +7,13 @@ import 'package:shop_app/data/models/change_favorites_model.dart';
 import 'package:shop_app/data/models/favorite_data_model.dart';
 import 'package:shop_app/data/models/home_model.dart';
 import 'package:shop_app/data/models/login_model.dart';
+import 'package:shop_app/data/models/search_model_data.dart';
 import 'package:shop_app/data/repo/cart_repo.dart';
 import 'package:shop_app/data/repo/category_repo.dart';
 import 'package:shop_app/data/repo/favorit_repo.dart';
 import 'package:shop_app/data/repo/get_profile_repo.dart';
 import 'package:shop_app/data/repo/home_repo.dart';
+import 'package:shop_app/data/repo/search_repo.dart';
 import 'package:shop_app/layout/shop_app/cubit/app-state.dart';
 import 'package:shop_app/modules/cart/cart.dart';
 import 'package:shop_app/modules/category/category.dart';
@@ -37,6 +39,7 @@ class ShopAppCubit extends Cubit<ShopAppStates> {
 
   Map<int, bool> favorites = {};
   Map<int, bool> cart = {};
+  List<dynamic> searchList = [];
 
   //Function to change screens
   void changeIndex(index) {
@@ -179,6 +182,22 @@ class ShopAppCubit extends Cubit<ShopAppStates> {
     }).catchError((e) {
       print(e.toString());
       emit(ShopAppGetCartErrorState());
+    });
+  }
+
+  SearchModel? searchModel;
+
+  void search(String searchItem) {
+    emit(ShopAppSearchLoadingState());
+    var token = CacheWrapper.getData(key: 'token');
+    searchList = [];
+    SearchRepo.search(searchItem, token).then((value) {
+      searchModel = SearchModel.fromJson(value.data);
+      // print(searchModel!.data!.data);
+      emit(ShopAppSearchSuccessState());
+    }).catchError((error) {
+      print(error);
+      emit(ShopAppSearchFailedState(error));
     });
   }
 

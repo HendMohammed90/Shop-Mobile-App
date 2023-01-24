@@ -12,6 +12,7 @@ class Constants {
   static const profileEndPoint = 'profile';
   static const registerEndPoint = 'register';
   static const cartEndPoint = 'carts';
+  static const searchEndPoint = 'products/search';
 
   // static const token = '';
 

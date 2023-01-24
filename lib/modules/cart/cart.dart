@@ -20,7 +20,7 @@ class CartPage extends StatelessWidget {
           children: [
             Expanded(
               child: ConditionalBuilder(
-                  condition: state is! ShopAppGetFavoriteLoadingState,
+                  condition: state is! ShopAppGetCartLoadingState,
                   builder: (context) => ListView.separated(
                       itemBuilder: (context, index) => buildCartListItem(
                           ShopAppCubit.get(context)

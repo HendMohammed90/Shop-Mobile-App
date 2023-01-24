@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shop_app/constats.dart';
+import 'package:shop_app/data/models/home_model.dart';
+import 'package:shop_app/layout/shop_app/cubit/app-cubit.dart';
 
 // Widget buildArticaleItem(list, context) => InkWell(
 //       onTap: () {
@@ -198,5 +200,101 @@ Widget defaultFormField({
               )
             : null,
         border: OutlineInputBorder(),
+      ),
+    );
+
+Widget buildListProduct(model, BuildContext context,
+        {bool isOldPrice = true}) =>
+    Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: SizedBox(
+        height: 120.0,
+        child: Row(
+          children: [
+            Stack(
+              alignment: AlignmentDirectional.bottomStart,
+              children: [
+                Image(
+                  image: NetworkImage(
+                    '${model!.image}',
+                  ),
+                  width: 120.0,
+                  height: 120.0,
+                ),
+                if (model.discount != 0 && isOldPrice)
+                  Container(
+                    color: Colors.red,
+                    padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                    child: const Text(
+                      'DISCOUNT',
+                      style: TextStyle(fontSize: 10.0, color: Colors.white),
+                    ),
+                  ),
+              ],
+            ),
+            const SizedBox(
+              width: 20.0,
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '${model.name}',
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      fontSize: 14.0,
+                      height: 1.3,
+                    ),
+                  ),
+                  Spacer(),
+                  Row(
+                    children: [
+                      Text(
+                        '${model.price}',
+                        style: const TextStyle(
+                          fontSize: 12.0,
+                          color: Constants.mainColor,
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 5.0,
+                      ),
+                      // if (model.discount != 0 && isOldPrice)
+                      //   Text(
+                      //     '${model.oldPrice}',
+                      //     style: const TextStyle(
+                      //       fontSize: 10.0,
+                      //       color: Colors.grey,
+                      //       decoration: TextDecoration.lineThrough,
+                      //     ),
+                      //   ),
+                      const Spacer(),
+                      if (isOldPrice)
+                        IconButton(
+                          onPressed: () {
+                            // ShopAppCubit.get(context).changeFavorites(model.id!);
+                          },
+                          icon: CircleAvatar(
+                            radius: 15.0,
+                            backgroundColor: Colors.grey,
+                            // ShopCubit.get(context).favorites[model.id]!
+                            //     ? defaultColor
+                            //     : Colors.grey,
+                            child: const Icon(
+                              Icons.favorite_border,
+                              size: 14.0,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
