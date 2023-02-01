@@ -66,8 +66,8 @@ import 'package:shop_app/layout/shop_app/cubit/app-cubit.dart';
 //     );
 
 ThemeData lightThem = ThemeData(
-  primarySwatch: Colors.green,
-  primaryColor: Colors.green,
+  primarySwatch: Colors.deepPurple,
+  primaryColor: Colors.deepPurple,
   scaffoldBackgroundColor: Colors.white,
   appBarTheme: const AppBarTheme(
     iconTheme: IconThemeData(
@@ -77,10 +77,10 @@ ThemeData lightThem = ThemeData(
     elevation: 0.0,
     backwardsCompatibility: false,
     systemOverlayStyle: SystemUiOverlayStyle(
-      statusBarColor: Colors.green,
+      statusBarColor: Colors.deepPurple,
       statusBarIconBrightness: Brightness.light,
     ),
-    backgroundColor: Colors.green,
+    backgroundColor: Colors.deepPurple,
     titleTextStyle: TextStyle(
       color: Colors.white,
       fontSize: 20,

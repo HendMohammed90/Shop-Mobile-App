@@ -100,7 +100,7 @@ class _OnBoardingState extends State<OnBoarding> {
                   controller: _pageController, // PageController
                   count: 3,
                   effect: WormEffect(
-                    activeDotColor: Colors.green,
+                    activeDotColor: Colors.deepPurple,
                     dotColor: Colors.grey,
                     dotHeight: 10,
                     dotWidth: 10,

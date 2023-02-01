@@ -16,7 +16,7 @@ class Constants {
 
   // static const token = '';
 
-  static const mainColor = Colors.green;
+  static const mainColor = Colors.deepPurple;
   static const whiteColor = Colors.white;
   static const blackColor = Colors.black;
 

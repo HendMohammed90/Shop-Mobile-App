@@ -41,7 +41,7 @@ class LoginPage extends StatelessWidget {
                   toastLength: Toast.LENGTH_SHORT,
                   gravity: ToastGravity.BOTTOM,
                   timeInSecForIosWeb: 1,
-                  backgroundColor: Colors.green,
+                  backgroundColor: Colors.deepPurple,
                   textColor: Colors.white,
                   fontSize: 16.0);
               CacheWrapper.saveData(
@@ -147,11 +147,11 @@ class LoginPage extends StatelessWidget {
                               Icons.lock,
                               color: Constants.mainColor,
                             ),
-                            suffixIconColor: Colors.green,
+                            suffixIconColor: Colors.deepPurple,
                             /////TODO Here we have to make function in cubit to change the suffix icon
                             suffix: Icon(
                               Icons.visibility_off_outlined,
-                              color: Colors.green,
+                              color: Colors.deepPurple,
                             ),
                           ),
 
